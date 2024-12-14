@@ -15,12 +15,12 @@ export interface EastNorthUpFrameProps {
 export const EastNorthUpFrame: FC<EastNorthUpFrameProps>;
 
 export function TilesPlugin<
-	Plugin extends new (...args: any[]) => any,
-	Params extends {} = ConstructorParameters<Plugin>[0] extends {} ? ConstructorParameters<Plugin>[0] : {}
+	Plugin extends new ( ...args : any[] ) => any,
+	Params extends {} = ConstructorParameters<Plugin>[ 0 ] extends {} ? ConstructorParameters<Plugin>[ 0 ] : {}
 >(
 	props: {
 		plugin : Plugin;
-		args? : Params | [Params];
+		args? : Params | [ Params ];
 	} & Partial<Params> & RefAttributes<Plugin>
 ): JSX.Element;
 
@@ -30,7 +30,7 @@ export type TilesRendererProps = {
 	children? : ReactNode;
 } & {
 	// All the instance fields except callable functions.
-	[K in keyof TilesRendererImpl as TilesRendererImpl[K] extends (...args : any) => any ? never : K] : TilesRendererImpl[K];
+	[ K in keyof TilesRendererImpl as TilesRendererImpl[ K ] extends ( ...args : any ) => any ? never : K ] : TilesRendererImpl[ K ];
 };
 
 export const TilesRenderer : FC<TilesRendererProps & RefAttributes<TilesRendererImpl>>;
