@@ -2,6 +2,8 @@ import { FC, ReactNode, RefAttributes } from "react";
 import { GroupProps } from "@react-three/fiber";
 import { TilesRenderer as TilesRendererImpl } from "../../three/TilesRenderer";
 
+  // TODO: Support dashed props, but it's hard.
+
 export interface EastNorthUpFrameProps {
 	lat : number;
 	lon : number;
@@ -28,9 +30,6 @@ export type TilesRendererProps = {
 	url? : string;
 	group? : GroupProps;
 	children? : ReactNode;
-} & {
-	// All the instance fields except callable functions.
-	[ K in keyof TilesRendererImpl as TilesRendererImpl[ K ] extends ( ...args : any ) => any ? never : K ] : TilesRendererImpl[ K ];
-};
+} & Partial<TilesRendererImpl>;
 
 export const TilesRenderer : FC<TilesRendererProps & RefAttributes<TilesRendererImpl>>;
