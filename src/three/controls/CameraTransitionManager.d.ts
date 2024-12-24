@@ -4,12 +4,12 @@ export type CameraTransitionMode = 'perspective' | 'orthographic';
 
 export class CameraTransitionManager extends EventDispatcher {
 
-	get animating(): boolean;
-	get camera(): PerspectiveCamera | OrthographicCamera;
+	readonly animating : boolean;
+	readonly camera : PerspectiveCamera | OrthographicCamera;
 
-	accessor mode : CameraTransitionMode;
+	mode : CameraTransitionMode;
 
-	constructor( perspectiveCamera?: PerspectiveCamera, orthographicCamera?: OrthographicCamera );
+	constructor( perspectiveCamera? : PerspectiveCamera, orthographicCamera? : OrthographicCamera );
 
 	toggle(): void;
 	update(): void;
