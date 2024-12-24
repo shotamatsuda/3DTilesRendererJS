@@ -4,17 +4,17 @@ import { TilesRenderer } from '../../three/TilesRenderer';
 import { EnvironmentControls as EnvironmentControlsImpl } from '../../three/controls/EnvironmentControls';
 import { GlobeControls as GlobeControlsImpl } from '../../three/controls/GlobeControls';
 
-interface ControlsBaseComponentProps< T > extends Partial< T > {
+interface ControlsBaseComponentProps {
 	domElement? : HTMLCanvasElement | null;
 	scene? : Object3D | null;
 	camera? : Camera | null;
 	tilesRenderer? : TilesRenderer | null;
 }
 
-export interface EnvironmentControlsProps extends ControlsBaseComponentProps< EnvironmentControlsImpl > {}
+export interface EnvironmentControlsProps extends ControlsBaseComponentProps, Partial< EnvironmentControlsImpl > {}
 
 export const EnvironmentControls : FC< EnvironmentControlsProps & RefAttributes< EnvironmentControlsImpl > >;
 
-export interface GlobeControlsProps extends ControlsBaseComponentProps< GlobeControlsImpl > {}
+export interface GlobeControlsProps extends ControlsBaseComponentProps, Partial< GlobeControlsImpl > {}
 
 export const GlobeControls : FC< GlobeControlsProps & RefAttributes< GlobeControlsImpl > >;
