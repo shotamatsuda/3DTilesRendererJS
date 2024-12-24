@@ -1,8 +1,8 @@
-import { FC, ReactNode, RefAttributes } from "react";
-import { GroupProps } from "@react-three/fiber";
-import { TilesRenderer as TilesRendererImpl } from "../../three/TilesRenderer";
+import { Context, FC, ReactNode, RefAttributes } from 'react';
+import { GroupProps } from '@react-three/fiber';
+import { TilesRenderer as TilesRendererImpl } from '../../three/TilesRenderer';
 
-  // TODO: Support dashed props, but it's hard.
+export const TilesRendererContext: Context<TilesRendererImpl | null>;
 
 export interface EastNorthUpFrameProps {
 	lat : number;
