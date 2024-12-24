@@ -19,6 +19,7 @@ import {
 	TileCompressionPlugin,
 	TilesFadePlugin,
 	GLTFExtensionsPlugin,
+	UnloadTilesPlugin,
 } from '3d-tiles-renderer/plugins';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
@@ -104,15 +105,12 @@ function App() {
 		>
 			<color attach="background" args={ [ 0x111111 ] } />
 
-			{/*
-				3D Tiles renderer tile set
-				Use a "key" property to ensure the tiles renderer gets recreated when the api token or asset change
-			*/}
 			<TilesRenderer group={ { rotation: [ - Math.PI / 2, 0, 0 ] } }>
 				<TilesPlugin plugin={ GoogleCloudAuthPlugin } args={ { apiToken } } />
 				<TilesPlugin plugin={ GLTFExtensionsPlugin } dracoLoader={ dracoLoader } />
 				<TilesPlugin plugin={ TileCompressionPlugin } />
 				<TilesPlugin plugin={ UpdateOnChangePlugin } />
+				<TilesPlugin plugin={ UnloadTilesPlugin } />
 				<TilesPlugin plugin={ TilesFadePlugin } />
 
 				{/* Controls */}
